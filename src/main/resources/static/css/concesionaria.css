@@ -1,0 +1,67 @@
+body {
+    background-color: #E5E5E5;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+}
+
+/* ---------------------------------------------------
+                NAVBAR
+--------------------------------------------------- */
+
+.navbar {
+    display: flex;
+    background: #ffffff;
+
+}
+
+
+
+.nav-link{
+    color: #5D5A88;
+}
+
+.navbar-brand {
+    font-size: 35px;
+    color: #5D5A88;
+}
+
+.navbar a:hover {
+    color: #5a54ad;
+}
+
+/* ---------------------------------------------------
+                CONTENT STYLE
+--------------------------------------------------- */
+
+#content {
+    width: 100%;
+    min-height: 10vh;
+}
+
+@media (min-width: 576px) {
+    .card-columns { column-count: 2; }
+}
+
+@media (min-width: 768px) {
+    .card-columns { column-count: 3; }
+}
+
+@media (min-width: 992px) {
+    .card-columns { column-count: 4; }
+}
+
+/* ---------------------------------------------------
+                SELECT2
+----------------------------------------------------- */
+
+.select2-selection__rendered {
+    line-height: 38px !important;
+}
+
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+
+.select2-selection__arrow {
+    height: 36px !important;
+}
