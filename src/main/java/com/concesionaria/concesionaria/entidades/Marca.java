@@ -1,5 +1,8 @@
 package com.concesionaria.concesionaria.entidades;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import jakarta.persistence.*;
 import java.util.*;
@@ -15,6 +18,9 @@ public class Marca {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @NotBlank(message = "Campo obligatorio")
+    @Size(max = 50, message = "Nombre demasiado largo")
     private String nombre;
 
     @OneToMany(mappedBy = "marca")
