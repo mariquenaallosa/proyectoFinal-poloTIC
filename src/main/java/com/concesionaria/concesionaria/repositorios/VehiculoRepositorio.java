@@ -7,4 +7,10 @@ import com.concesionaria.concesionaria.entidades.*;
 @Repository
 public interface VehiculoRepositorio extends CrudRepository<Vehiculo, Long> {
 
+    @Query("SELECT v FROM Vehiculo v WHERE v.tipoVehiculo.id = ?1")
+    List<Vehiculo> findByTipoVehiculo(Long id);
+
+    @Query("SELECT v FROM Vehiculo v WHERE v.marca.id = ?1")
+    List<Vehiculo> findByMarca(Long id);
+
 }
