@@ -19,11 +19,16 @@ body {
 
 .navbar-brand {
     font-size: 35px;
-    color: #5D5A88;
+    color: #5d5a88;
 }
 
 .navbar a:hover {
     color: #5a54ad;
+}
+
+.navbar .form-control:focus {
+    border-color: #5D5A88; 
+    box-shadow: 0 0 0 0.2rem rgba(200, 115, 208, 0.25); 
 }
 /* ---------------------------------------------------
                 BANNER STYLE
