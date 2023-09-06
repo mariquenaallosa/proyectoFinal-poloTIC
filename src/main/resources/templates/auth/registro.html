@@ -1,0 +1,40 @@
+<div class="container my-auto p-3" th:fragment="contenido">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="card">
+          <div class="card-header">
+            Registro
+          </div>
+          <form class="card-body" th:action="@{/registro}" th:object="${registroDto}" method="POST">
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="text" class="form-control" id="email" th:field="*{email}" th:errorClass="'is-invalid'">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" th:field="*{password}" th:errorClass="'is-invalid'">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+            </div>
+            <div class="mb-3">
+              <label for="confirmar" class="form-label">Repita la contraseña</label>
+              <input type="password" class="form-control" id="confirmar" th:field="*{confirmar}" th:errorClass="'is-invalid'">
+              <div class="invalid-feedback" th:if="${#fields.hasErrors('confirmar')}" th:errors="*{confirmar}"></div>
+            </div>
+            <div class="row mb-3">
+              <div class="g-recaptcha col-12 d-flex justify-content-center" name="recaptcha" th:errorClass="'is-invalid'" data-sitekey="6Ldjs2wjAAAAAH1Gwrcg3gwqxAOaMTKlvr5bomcu"></div>
+              <div class="invalid-feedback col-12" th:if="${#fields.hasErrors('recaptcha')}" th:errors="*{recaptcha}"></div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary mx-2">Registrarme</button>
+            </div>
+          </form>
+          <div class="card-footer text-center p-3">
+            <a href="/login" class="text-decoration-none fw-bold h5">Ya tengo una cuenta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script th:fragment="script" src="https://www.google.com/recaptcha/api.js"></script>
