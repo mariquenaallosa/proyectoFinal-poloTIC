@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RestController
 @RequestMapping("vehiculos")
-public class VehiculoController implements WebMvcController{
+public class VehiculoController implements WebMvcConfigurer {
 
     @Autowired
     TipoVehiculoServicio tipoVehiculoServicio;

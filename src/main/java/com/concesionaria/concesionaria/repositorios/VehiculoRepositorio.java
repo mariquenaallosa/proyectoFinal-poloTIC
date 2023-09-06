@@ -3,6 +3,8 @@ package com.concesionaria.concesionaria.repositorios;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import com.concesionaria.concesionaria.entidades.*;
+import org.springframework.data.jpa.repository.Query;
+import java.util.*;
 
 @Repository
 public interface VehiculoRepositorio extends CrudRepository<Vehiculo, Long> {

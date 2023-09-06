@@ -27,12 +27,12 @@ public class VehiculoServicio {
     //Obtener el vehiculo según Tipo de vehiculo
     public List<Vehiculo> getByTipoVehiculo(Long id) {
         return vehiculoRepositorio.findByTipoVehiculo(id);
-
+    }
 
     //Obtener el vehiculo según Marca
     public List<Vehiculo> getByMarca(Long id) {
-        return vehiculoRepositorio.findByTipoMarca(id);
-
+        return vehiculoRepositorio.findByMarca(id);
+    }
     //Guardar un vehiculo en la base de datos
     public void save(Vehiculo vehiculo){
         vehiculoRepositorio.save(vehiculo);
