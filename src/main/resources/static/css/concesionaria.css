@@ -1,5 +1,5 @@
 body {
-    background-color: #E5E5E5;
+    background-color: #fff;
     min-height: 100vh;
     font-family: 'Lato', sans-serif;
 }
@@ -10,7 +10,7 @@ body {
 
 .navbar {
     display: flex;
-    background: #ffffff;
+    background: #fff;
 }
 
 .nav-link{
@@ -31,31 +31,97 @@ body {
 
 .banner {
     width: 100%;
-    height: 88vh;
+    height: 95vh;
     background: url(/images/banner-home.webp) bottom center no-repeat;
     background-size: cover;
     position: relative;
     padding-top: 82px;
-    color: #f3f3f3;
+    color: #8D8BA7;
     text-shadow: 3px 2px 5px rgba(0,0,0,0.6);
 }
 
-.banner h2 {
+.banner h2 , .vehiculo h2 {
     margin: 0;
     font-size: 3em;
     font-weight: 700;
     padding: 20px;
 }
 
-.banner h3 {
+.banner h3  {
     padding-top: 20px;
-}
-
-.banner a {
-    margin-top: 20px;
+    font-size: 2em;
 }
 
 
+
+.vehiculo {
+    padding: 60px;
+}
+.vehiculo h2, .vehiculo .card-title {
+    color: #5D5A88;
+}
+
+.vehiculo p , .vehiculo span, .vehiculo svg{
+    color: #8D8BA7;
+}
+.section-title > p {
+    font-size: 1.3em;
+
+}
+
+
+/* ---------------------------------------------------
+                BTN - Ver más
+--------------------------------------------------- */
+.cta {
+  border: none;
+  background: none;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #5D5A88;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 /* ---------------------------------------------------
                 CONTENT STYLE
 --------------------------------------------------- */
