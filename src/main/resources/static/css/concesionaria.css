@@ -1,5 +1,5 @@
 body {
-    background-color: #E5E5E5;
+    background-color: #fff;
     min-height: 100vh;
     font-family: 'Lato', sans-serif;
 }
@@ -10,11 +10,8 @@ body {
 
 .navbar {
     display: flex;
-    background: #ffffff;
-
+    background: #fff;
 }
-
-
 
 .nav-link{
     color: #5D5A88;
@@ -22,13 +19,125 @@ body {
 
 .navbar-brand {
     font-size: 35px;
-    color: #5D5A88;
+    color: #5d5a88;
 }
 
 .navbar a:hover {
     color: #5a54ad;
 }
 
+.navbar .form-control:focus {
+    border-color: #5D5A88; 
+    box-shadow: 0 0 0 0.2rem rgba(200, 115, 208, 0.25); 
+}
+/* ---------------------------------------------------
+                BANNER STYLE
+--------------------------------------------------- */
+
+.banner {
+    width: 100%;
+    height: 95vh;
+    background: url(/images/banner-home.webp) bottom center no-repeat;
+    background-size: cover;
+    position: relative;
+    padding-top: 82px;
+    color: #edecf0;
+    text-shadow: 3px 2px 5px rgba(0,0,0,0.6);
+}
+
+.banner h2 , .vehiculo h2 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: 700;
+    padding: 20px;
+}
+
+.banner h3  {
+    padding-top: 20px;
+    font-size: 1.5em;
+}
+
+/* ---------------------------------------------------
+                VEHICULOS - HOME
+--------------------------------------------------- */
+
+.vehiculo {
+    padding: 60px;
+}
+.vehiculo h2, .vehiculo .card-title {
+    color: #5D5A88;
+}
+
+.vehiculo p , .vehiculo span{
+    color: #8D8BA7;
+}
+.vehiculo svg{
+    fill:#8D8BA7;
+}
+.section-title > p {
+    font-size: 1.3em;
+
+}
+
+.card {
+    border-color: #c8c6dd;
+    border-radius: 24px;
+    padding: 0;
+}
+
+
+/* ---------------------------------------------------
+                BTN - Ver más
+--------------------------------------------------- */
+.cta {
+  border: none;
+  background: none;
+}
+
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 2px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
+
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.cta:hover svg {
+  transform: translateX(0);
+}
+
+.cta:active svg {
+  transform: scale(0.9);
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #5D5A88;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 /* ---------------------------------------------------
                 CONTENT STYLE
 --------------------------------------------------- */
