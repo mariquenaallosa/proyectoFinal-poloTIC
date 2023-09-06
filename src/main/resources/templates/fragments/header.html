@@ -5,17 +5,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <ul class="navbar-nav me-auto my-1 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Link
-            </a>
             <ul class="dropdown-menu">
               <li sec:authorize="hasRole('ROLE_Administrador')"><a class="dropdown-item" href="/Vehiculo">Vehiculo</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -23,30 +16,27 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Link</a>
-          </li>
           <li class="nav-item" sec:authorize="isAuthenticated()">
             <form class="form-inline" th:action="@{/logout}" method="POST">
               <button class="btn btn-link nav-link active" type="submit" onclick="return confirm('¿Seguro de cerrar sesión?')">
-                <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
+                <i class="bi bi-box-arrow-right"></i> Cerrar sesión
               </button>
             </form>
           </li>
           <li class="nav-item" sec:authorize="isAnonymous()">
             <a class="nav-link active" aria-current="page" href="/login">
-              <i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión
+              <i class="bi bi-person"></i> Iniciar sesión
             </a>
           </li>
           <li class="nav-item" sec:authorize="isAnonymous()">
             <a class="nav-link active" aria-current="page" href="/registro">
-              <i class="fa-solid fa-user-plus"></i> Registrarse
+              <i class="bi bi-person-add"></i> Registrarse
             </a>
           </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn" type="submit"><i class="bi bi-search"></i></button>
         </form>
       </div>
     </div>
