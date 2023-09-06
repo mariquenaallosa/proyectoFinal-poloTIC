@@ -36,7 +36,7 @@ body {
     background-size: cover;
     position: relative;
     padding-top: 82px;
-    color: #8D8BA7;
+    color: #edecf0;
     text-shadow: 3px 2px 5px rgba(0,0,0,0.6);
 }
 
@@ -49,10 +49,12 @@ body {
 
 .banner h3  {
     padding-top: 20px;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
-
+/* ---------------------------------------------------
+                VEHICULOS - HOME
+--------------------------------------------------- */
 
 .vehiculo {
     padding: 60px;
@@ -61,12 +63,21 @@ body {
     color: #5D5A88;
 }
 
-.vehiculo p , .vehiculo span, .vehiculo svg{
+.vehiculo p , .vehiculo span{
     color: #8D8BA7;
+}
+.vehiculo svg{
+    fill:#8D8BA7;
 }
 .section-title > p {
     font-size: 1.3em;
 
+}
+
+.card {
+    border-color: #c8c6dd;
+    border-radius: 24px;
+    padding: 0;
 }
 
 
@@ -80,7 +91,7 @@ body {
 
 .cta span {
   padding-bottom: 7px;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   font-size: 14px;
   padding-right: 15px;
   text-transform: uppercase;
