@@ -20,6 +20,7 @@ public class MarcaController implements WebMvcConfigurer {
     @GetMapping
     public ModelAndView index(){
         ModelAndView mav = new ModelAndView();
+        mav.setViewName("fragments/base");
         mav.addObject("titulo","Lista de Marcas");
         mav.addObject("vista","marcas/index");
         mav.addObject("marcas", marcaServicio.getAll());
@@ -33,46 +34,43 @@ public class MarcaController implements WebMvcConfigurer {
         mav.addObject("titulo", "Crear marca");
         mav.addObject("vista", "marcas/crear");
         mav.addObject("marca", marca);
-        mav.addObject("marca", marcaServicio.getAll());
         return mav;
     }
 
     @PostMapping("/crear")
-    public ModelAndView guardar(@RequestParam @Valid Marca marca, BindingResult br, RedirectAttributes ra) {
+    public ModelAndView guardar(@Valid Marca marca, BindingResult br, RedirectAttributes ra) {
         if ( br.hasErrors() ) {
             return this.crear(marca);
         }
 
-        ModelAndView mav = this.index();
         marcaServicio.save(marca);
+
+        ModelAndView mav = this.index();
         mav.addObject("exito", "Marca creada exitosamente");
         return mav;
     }
 
     @GetMapping("/editar/{id}")
     public ModelAndView editar(@PathVariable("id") Long id, Marca marca){
-        return this.editar(id, marca, true);
-    }
-
-    public ModelAndView editar(@PathVariable("id") Long id, Marca marca, boolean estaPersistido) {
+     
         ModelAndView mav = new ModelAndView();
         mav.setViewName("fragments/base");
         mav.addObject("titulo", "Editar marca");
         mav.addObject("vista", "marcas/editar");
         mav.addObject("marca", marcaServicio.getById(id));
 
-        if (estaPersistido)
-            mav.addObject("marca", marcaServicio.getById(id));
-
         return mav;
     }
 
     @PutMapping("/editar/{id}")
-    private ModelAndView update(@PathVariable("id") Long id,
-                                @RequestParam
-                                @Valid Marca marca, @org.jetbrains.annotations.NotNull BindingResult br, RedirectAttributes ra) {
+    private ModelAndView update(@PathVariable("id") Long id, @Valid Marca marca, BindingResult br, RedirectAttributes ra) {
         if ( br.hasErrors() ) {
-            return this.editar(id, marca, false);
+            ModelAndView mav = new ModelAndView();
+            mav.setViewName("fragments/base");
+            mav.addObject("titulo", "Editar marca");
+            mav.addObject("vista", "marcas/editar");
+            mav.addObject("marca", marca);
+            return mav;
         }
 
         Marca registro = marcaServicio.getById(id);
