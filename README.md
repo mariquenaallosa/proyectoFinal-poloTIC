@@ -23,6 +23,4 @@ NOTA: Reemplazar los valores borrando los <>.
 4. Ejecutar nuestra aplicación ejecutando el siguiente comando:
     `mvn spring-boot:run`
 
-### ✨ Equipo
 
-[![Contributors](https://contrib.rocks/image?repo=mariquenaallosa/proyectoFinal-poloTIC)](https://github.com/mariquenaallosa/proyectoFinal-poloTIC/graphs/contributors)
