@@ -1,5 +1,7 @@
 package com.concesionaria.concesionaria.controladores;
 
+import com.concesionaria.concesionaria.repositorios.VehiculoRepositorio;
+import com.concesionaria.concesionaria.servicios.VehiculoServicio;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,7 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class HomeController {
 
+    @Autowired
+    VehiculoServicio vehiculoServicio;
 
+    @Autowired
+    VehiculoRepositorio vehiculoRepositorio;
 
     @RequestMapping("/")
     public ModelAndView home()
@@ -17,6 +23,7 @@ public class HomeController {
         maw.setViewName("fragments/base");
         maw.addObject("titulo", "Inicio");
         maw.addObject("vista", "inicio/home");
+        //maw.addObject("vehiculos",vehiculoServicio.getAll());
 
 /*
         long random = (long) ((Math.random() * (cursoRepository.count() - 1)) + 1);
