@@ -26,8 +26,6 @@ public class VehiculoController implements WebMvcConfigurer {
     @Autowired
     VehiculoServicio vehiculoServicio;
 
-
-
     @GetMapping
     public ModelAndView index(){
 
@@ -37,7 +35,6 @@ public class VehiculoController implements WebMvcConfigurer {
         mav.addObject("vista","vehiculos/index");
         mav.addObject("vehiculos", vehiculoServicio.getAll());
         return mav;
-
     }
 
     @GetMapping("tipoVehiculo/{id}")
@@ -52,7 +49,7 @@ public class VehiculoController implements WebMvcConfigurer {
         return mav;
     } 
 
-    @GetMapping("marca/{id}")
+        @GetMapping("marca/{id}")
         public ModelAndView vehiculoPorMarca(@PathVariable("id") Long id) {
         ModelAndView mav = new ModelAndView();
         Marca marca = marcaServicio.getById(id);
