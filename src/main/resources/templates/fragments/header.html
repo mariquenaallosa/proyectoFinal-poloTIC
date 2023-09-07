@@ -1,45 +1,55 @@
 <nav class="navbar navbar-expand-lg bg-body-secondary" th:fragment="header">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Concesionaria</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-1 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-          </li>
-            <ul class="dropdown-menu">
-              <li sec:authorize="hasRole('ROLE_Administrador')"><a class="dropdown-item" href="/Vehiculo">Vehiculo</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-          <li class="nav-item" sec:authorize="isAuthenticated()">
-            <form class="form-inline" th:action="@{/logout}" method="POST">
-              <button class="btn btn-link nav-link active" type="submit" onclick="return confirm('¿Seguro de cerrar sesión?')">
-                <i class="bi bi-box-arrow-right"></i> Cerrar sesión
-              </button>
+      <div class="d-flex justify-content-start">
+        <a class="navbar-brand" href="/">Amazing Cars</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarScroll" aria-controls="navbarScroll"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <div class="collapse navbar-collapse  " id="navbarScroll">
+          <ul class="navbar-nav me-auto my-1 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+            </li>
+            <li>
+                <ul class="dropdown-menu">
+                  <li sec:authorize="hasRole('ROLE_Administrador')"><a class="dropdown-item" href="/Vehiculo">Vehiculo</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+              <form class="form-inline" th:action="@{/logout}" method="POST">
+                <button class="btn btn-link nav-link active" type="submit" onclick="return confirm('¿Seguro de cerrar sesión?')">
+                  <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                </button>
+              </form>
+            </li>
+            <li class="nav-item" sec:authorize="isAnonymous()">
+              <a class="nav-link active" aria-current="page" href="/login">
+                <i class="bi bi-person"></i> Iniciar sesión
+              </a>
+            </li>
+            <li class="nav-item" sec:authorize="isAnonymous()">
+              <a class="nav-link active" aria-current="page" href="/registro">
+                <i class="bi bi-person-add"></i> Registrarse</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-start">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn" type="submit"><i class="bi bi-search"></i></button>
             </form>
-          </li>
-          <li class="nav-item" sec:authorize="isAnonymous()">
-            <a class="nav-link active" aria-current="page" href="/login">
-              <i class="bi bi-person"></i> Iniciar sesión
-            </a>
-          </li>
-          <li class="nav-item" sec:authorize="isAnonymous()">
-            <a class="nav-link active" aria-current="page" href="/registro">
-              <i class="bi bi-person-add"></i> Registrarse
-            </a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn" type="submit"><i class="bi bi-search"></i></button>
-        </form>
       </div>
     </div>
-  </nav>
+</nav>
   
   
