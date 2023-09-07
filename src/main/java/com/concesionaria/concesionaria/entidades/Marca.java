@@ -26,7 +26,7 @@ public class Marca {
     @OneToMany(mappedBy = "marca")
     private Set<Vehiculo> vehiculos;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "marca_tipo",
             joinColumns = @JoinColumn(name = "id_tipov"),
             inverseJoinColumns = @JoinColumn(name = "id_marca")
