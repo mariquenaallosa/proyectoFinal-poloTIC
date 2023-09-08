@@ -12,8 +12,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @RestController
-@RequestMapping("tipoVehiculos")
+@RequestMapping("tipovehiculos")
 public class TipoVehiculoController implements WebMvcConfigurer {
+
     @Autowired
     TipoVehiculoServicio tipoVehiculoServicio;
 
@@ -21,9 +22,9 @@ public class TipoVehiculoController implements WebMvcConfigurer {
     public ModelAndView index(){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("fragments/base");
-        mav.addObject("titulo","Lista de tipos de vehiculos");
-        mav.addObject("vista","tipoVehiculos/index");
-        mav.addObject("tipoVehiculos", tipoVehiculoServicio.getAll());
+        mav.addObject("titulo","Lista tipos de vehiculos");
+        mav.addObject("vista","tipovehiculos/index");
+        mav.addObject("tipovehiculos", tipoVehiculoServicio.getAll());
         return mav;
     }
 
@@ -32,8 +33,8 @@ public class TipoVehiculoController implements WebMvcConfigurer {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("fragments/base");
         mav.addObject("titulo", "Crear tipo de vehiculo");
-        mav.addObject("vista", "tipoVehiculos/crear");
-        mav.addObject("tipoVehiculo", tipoVehiculo);
+        mav.addObject("vista", "tipovehiculos/crear");
+        mav.addObject("tipovehiculo", tipoVehiculo);
         return mav;
     }
 
@@ -46,7 +47,7 @@ public class TipoVehiculoController implements WebMvcConfigurer {
         tipoVehiculoServicio.save(tipoVehiculo);
 
         ModelAndView mav = this.index();
-        mav.addObject("exito", "Tipo de vehiculo creada exitosamente");
+        mav.addObject("exito", "Tipo de vehiculo creado exitosamente");
         return mav;
     }
 
@@ -56,8 +57,8 @@ public class TipoVehiculoController implements WebMvcConfigurer {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("fragments/base");
         mav.addObject("titulo", "Editar tipo de vehiculo");
-        mav.addObject("vista", "tipoVehiculos/editar");
-        mav.addObject("tipoVehiculo", tipoVehiculoServicio.getById(id));
+        mav.addObject("vista", "tipovehiculos/editar");
+        mav.addObject("tipovehiculo", tipoVehiculoServicio.getById(id));
 
         return mav;
     }
@@ -68,8 +69,8 @@ public class TipoVehiculoController implements WebMvcConfigurer {
             ModelAndView mav = new ModelAndView();
             mav.setViewName("fragments/base");
             mav.addObject("titulo", "Editar tipo de vehiculo");
-            mav.addObject("vista", "tipoVehiculos/editar");
-            mav.addObject("tipoVehiculo", tipoVehiculo);
+            mav.addObject("vista", "tipovehiculos/editar");
+            mav.addObject("tipovehiculo", tipoVehiculo);
             return mav;
         }
 

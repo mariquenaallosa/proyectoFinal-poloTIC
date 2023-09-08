@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RestController
 @RequestMapping("marcas")
 public class MarcaController implements WebMvcConfigurer {
+    
     @Autowired
      MarcaServicio marcaServicio;
 

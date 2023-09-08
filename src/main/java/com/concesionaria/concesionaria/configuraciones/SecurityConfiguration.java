@@ -27,7 +27,7 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/registro", "/css/*", "/images/*").permitAll()
-                        .requestMatchers("/vehiculos","/vehiculos/*","/marcas","marcas/*").hasRole("Admin")
+                        .requestMatchers("/tipoVehiculos","tipoVehiculos/*","/vehiculos","vehiculos/*","/marcas","marcas/*").hasRole("Admin")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
