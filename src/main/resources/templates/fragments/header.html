@@ -13,14 +13,18 @@
         <div class="collapse navbar-collapse  " id="navbarScroll">
           <ul class="navbar-nav me-auto my-1 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+              <a class="nav-link" aria-current="page" href="/">Inicio</a>
             </li>
-            <li>
+            <li class="nav-item dropdown" sec:authorize="hasRole('Admin')">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrar
+              </a>
                 <ul class="dropdown-menu">
-                  <li sec:authorize="hasRole('ROLE_Admin')"><a class="dropdown-item" href="/Vehiculo">Vehiculo</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li ><a class="dropdown-item" href="/vehiculos">Vehículos</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="/tipovehiculos">Tipo de Vehículos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/marcas">Marcas</a></li>
                 </ul>
             </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">

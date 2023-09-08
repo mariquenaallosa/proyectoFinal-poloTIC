@@ -13,13 +13,13 @@ body {
     background: #fff;
 }
 
-.nav-link{
-    color: #5D5A88;
-}
-
 .navbar-brand {
     font-size: 35px;
     color: #5d5a88;
+}
+
+.navbar a{
+    color: #5D5A88;
 }
 
 .navbar a:hover {
