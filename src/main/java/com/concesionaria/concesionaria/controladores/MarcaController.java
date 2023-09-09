@@ -1,6 +1,7 @@
 package com.concesionaria.concesionaria.controladores;
 
 import com.concesionaria.concesionaria.entidades.Marca;
+import com.concesionaria.concesionaria.entidades.TipoVehiculo;
 import com.concesionaria.concesionaria.servicios.MarcaServicio;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,15 @@ public class MarcaController implements WebMvcConfigurer {
         mav.addObject("marcas", marcaServicio.getAll());
         return mav;
     }
-
+    @GetMapping("/{id}") //muestra UNA marca,responde al boton eye
+    public ModelAndView mostrar(@PathVariable("id") Long id, Marca marca){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("fragments/base");
+        mav.addObject("titulo","Marca");
+        mav.addObject("vista","marcas/ver");
+        mav.addObject("marcas", marcaServicio.getById(id));
+        return mav;
+    }
     @GetMapping("/crear")
     public ModelAndView crear(Marca marca) {
         ModelAndView mav = new ModelAndView();

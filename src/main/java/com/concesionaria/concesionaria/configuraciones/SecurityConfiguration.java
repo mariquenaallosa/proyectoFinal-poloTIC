@@ -4,6 +4,7 @@ import com.concesionaria.concesionaria.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -28,6 +29,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/registro", "/css/*", "/images/*").permitAll()
                         .requestMatchers("/tipoVehiculos","tipoVehiculos/*","/vehiculos","vehiculos/*","/marcas","marcas/*").hasRole("Admin")
+                        .requestMatchers(HttpMethod.POST,"/tipoVehiculos","tipoVehiculos/*","/vehiculos","vehiculos/*","/marcas","marcas/*").hasRole("Admin")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

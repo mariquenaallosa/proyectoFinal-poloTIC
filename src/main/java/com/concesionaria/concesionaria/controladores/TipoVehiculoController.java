@@ -27,6 +27,15 @@ public class TipoVehiculoController implements WebMvcConfigurer {
         mav.addObject("tipovehiculos", tipoVehiculoServicio.getAll());
         return mav;
     }
+    @GetMapping("/{id}")
+    public ModelAndView mostrar(@PathVariable("id") Long id, TipoVehiculo tipoVehiculo){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("fragments/base");
+        mav.addObject("titulo","Tipo");
+        mav.addObject("vista","tipoVehiculos/ver");
+        mav.addObject("tipovehiculos", tipoVehiculoServicio.getById(id));
+        return mav;
+    }
 
     @GetMapping("/crear")
     public ModelAndView crear(TipoVehiculo tipoVehiculo) {

@@ -13,7 +13,7 @@
 
         <div class="row mb-5">
             <div class="col h2">Listado de tipo de vehiculos</div>
-            <a href="/tipovehiculos/crear" class="col-auto btn btn-lg btn-success">
+            <a href="tipovehiculos/crear" class="col-auto btn btn-lg btn-success">
                 <i class="bi bi-plus"></i>
             </a>
         </div>
@@ -30,6 +30,7 @@
                     <td th:text="${t.id}"></td>
                     <td th:text="${t.nombre}"></td>
                     <td>
+
                         <a class="btn btn-primary" th:href="@{'/tipovehiculos/{id}' (id=${t.id})}">
                             <i class="bi bi-eye"></i>
                         </a>
