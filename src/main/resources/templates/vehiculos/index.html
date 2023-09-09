@@ -34,28 +34,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="t : ${vehiculos}">
-                    <td th:text="${t.id}"></td>
-                    <td th:text="${t.nombre}"></td>
-                    <td th:text="${t.color}"></td>
-                    <td th:text="${t.descripcion}"></td>
-                    <td th:text="${t.annio}"></td>
-                    <td th:text="${t.km}"></td>
-                    <td th:text="${t.marca.nombre}"></td>
-                    <td th:text="${t.tipoVehiculo.nombre}"></td>
-                    <td th:text="${t.imagen}"></td>
+                <tr th:each="v : ${vehiculos}">
+                    <td th:text="${v.id}"></td>
+                    <td th:text="${v.nombre}"></td>
+                    <td th:text="${v.color}"></td>
+                    <td th:text="${v.descripcion}"></td>
+                    <td th:text="${v.annio}"></td>
+                    <td th:text="${v.km}"></td>
+                    <td th:text="${v.marca.nombre}"></td>
+                    <td th:text="${v.tipoVehiculo.nombre}"></td>
+                    <td style="text-align: center;"><img th:src="${'/images/vehiculos/' + v.imagen}" th:alt="${'Foto del vehiculo' + v.nombre}" height="150px"></td>
                     <td>
-                        <a class="btn btn-primary" th:href="@{'/vehiculos/{id}' (id=${t.id})}">
+                        <a class="btn btn-primary" th:href="@{'/vehiculos/{id}' (id=${v.id})}">
                             <i class="bi bi-eye"></i>
                         </a>
 
-<a class="btn btn-secondary" th:href="@{'/vehiculos/editar/{id}' (id=${t.id})}">
-    <i class="bi bi-pencil-fill"></i>
+                        <a class="btn btn-secondary" th:href="@{'/vehiculos/editar/{id}' (id=${v.id})}">
+                            <i class="bi bi-pencil-fill"></i>
                         </a>
 
-<form class="d-inline" th:action="@{'/vehiculos/{id}' (id=${t.id})}" th:method="DELETE">
-    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro de eliminar?')">
-        <i class="bi bi-trash3-fill"></i>
+                        <form class="d-inline" th:action="@{'/vehiculos/{id}' (id=${v.id})}" th:method="DELETE">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro de eliminar?')">
+                                <i class="bi bi-trash3-fill"></i>
                             </button>
                         </form>
                     </td>
