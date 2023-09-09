@@ -3,6 +3,7 @@ package com.concesionaria.concesionaria.entidades;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import jakarta.persistence.*;
+import java.lang.*;
 
 @Entity
 @AllArgsConstructor
@@ -27,17 +28,15 @@ public class Vehiculo {
     @ManyToOne(cascade = CascadeType.REFRESH)
     private TipoVehiculo tipoVehiculo;
 
-    @NotNull
-    @NotBlank(message = "Campo obligatorio")
-    private Float km;
+    
+    private Integer km;
 
     @NotNull
     @NotBlank(message = "Campo obligatorio")
     @Size(max = 50, message = "Nombre demasiado largo")
     private String color;
 
-    @NotNull
-    @NotBlank(message = "Campo obligatorio")
+    
     private Integer annio;
 
     @Size(max = 255, message = "Descripcion demasiada larga")

@@ -25,7 +25,7 @@ public class TipoVehiculo {
     private String nombre;
 
 
-    @OneToMany(mappedBy = "tipoVehiculo")
+    @OneToMany(mappedBy = "tipoVehiculo", fetch = FetchType.EAGER)
     private Set<Vehiculo> vehiculos;
 
 }

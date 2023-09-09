@@ -1,0 +1,73 @@
+<div class="container p-3" th:fragment="contenido">
+    <div class="card p-4">
+        <div class="row">
+            <div th:if="${exito}" class="alert alert-success alert-dismissible fade show">
+                <span th:text="${exito}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show">
+                <span th:text="${error}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+
+        <div class="row mb-5">
+            <div class="col h2">Listado de vehiculos</div>
+            <a href="/vehiculos/crear" class="col-auto btn btn-lg btn-success">
+                <i class="bi bi-plus"></i>
+            </a>
+        </div>
+
+<table id="vehiculos" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Color</th>
+                    <th>Descripcion</th>
+                    <th>Año</th>
+                    <th>KM</th>
+                    <th>Marca</th>
+                    <th>Tipo de Vehiculo</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="v : ${vehiculos}">
+                    <td th:text="${v.id}"></td>
+                    <td th:text="${v.nombre}"></td>
+                    <td th:text="${v.color}"></td>
+                    <td th:text="${v.descripcion}"></td>
+                    <td th:text="${v.annio}"></td>
+                    <td th:text="${v.km}"></td>
+                    <td th:text="${v.marca.nombre}"></td>
+                    <td th:text="${v.tipoVehiculo.nombre}"></td>
+                    <td style="text-align: center;"><img th:src="${'/images/vehiculos/' + v.imagen}" th:alt="${'Foto del vehiculo' + v.nombre}" height="150px"></td>
+                    <td>
+                        <a class="btn btn-primary" th:href="@{'/vehiculos/{id}' (id=${v.id})}">
+                            <i class="bi bi-eye"></i>
+                        </a>
+
+                        <a class="btn btn-secondary" th:href="@{'/vehiculos/editar/{id}' (id=${v.id})}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+
+                        <form class="d-inline" th:action="@{'/vehiculos/{id}' (id=${v.id})}" th:method="DELETE">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro de eliminar?')">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script th:fragment="script">
+    $(document).ready(function() {
+        $('#vehiculos').DataTable();
+    } );
+</script>
