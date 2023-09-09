@@ -3,6 +3,7 @@ package com.concesionaria.concesionaria.entidades;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import jakarta.persistence.*;
+import java.lang.*;
 
 @Entity
 @AllArgsConstructor
@@ -29,7 +30,7 @@ public class Vehiculo {
 
     @NotNull
     @NotBlank(message = "Campo obligatorio")
-    private Float km;
+    private Integer km;
 
     @NotNull
     @NotBlank(message = "Campo obligatorio")
