@@ -11,6 +11,47 @@
             <input type="text" class="form-control" id="nombre" th:field="*{nombre}" th:errorClass="'is-invalid'">
             <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
           </div>
+          <div class="mb-3">
+            <label for="color" class="form-label">Color</label>
+            <input type="text" class="form-control" id="color" th:field="*{color}" th:errorClass="'is-invalid'">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" th:errorClass="'is-invalid'">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></div>
+          </div>
+          <div class="mb-3">
+            <label for="annio" class="form-label">Año</label>
+            <input type="number" class="form-control" id="annio" th:field="*{annio}" th:errorClass="'is-invalid'">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('annio')}" th:errors="*{annio}"></div>
+          </div>
+          <div class="mb-3">
+            <label for="km" class="form-label">Kilometros</label>
+            <input type="number" step="0.01" class="form-control" id="km" th:field="*{km}" th:errorClass="'is-invalid'">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('km')}" th:errors="*{km}"></div>
+          </div>
+          <div class="mb-3">
+            <label for="marca" class="form-label">Marca</label>
+            <select id="marca" th:field="*{marca}" class="select2 form-select" th:errorClass="'is-invalid'">
+              <option selected value=""></option>
+              <option th:each="a : ${marca}" th:value="${a.id}" th:text="${a.nombre}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></div>
+          </div>
+          <div class="mb-3">
+            <label for="tipoVehiculo" class="form-label">Tipo de vehiculo</label>
+            <select id="tipoVehiculo" th:field="*{tipoVehiculo}" class="select2 form-select" th:errorClass="'is-invalid'">
+              <option selected value=""></option>
+              <option th:each="a : ${tipoVehiculo}" th:value="${a.id}" th:text="${a.nombre}"></option>
+            </select>
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('tipoVehiculo')}" th:errors="*{tipoVehiculo}"></div>
+          </div>
+          <div class="mb-3">
+            <label for="archivo" class="form-label">Foto del Vehiculo</label>
+            <input class="form-control" type="file" id="archivo" name="archivo" accept="image/*" required>
+          </div>
+
           <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-primary mx-2">Guardar</button>
             <a href="/vehiculos" class="btn btn-secondary mx-2">Volver</a>
@@ -21,4 +62,12 @@
   </div>
 </div>
 
-<script th:fragment="script"></script>
+<script th:fragment="script">
+  $(document).ready(function () {
+    $('.select2').select2({
+      placeholder: 'Seleccione una opción',
+      allowClear: true,
+      width: '100%',
+    });
+  });
+</script>

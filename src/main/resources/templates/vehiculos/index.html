@@ -11,38 +11,51 @@
             </div>
         </div>
 
+
         <div class="row mb-5">
-            <div class="col h2">Listado de áreas</div>
+            <div class="col h2">Listado de vehiculos</div>
             <a href="/vehiculos/crear" class="col-auto btn btn-lg btn-success">
-                <i class="fa-solid fa-plus"></i>
+                <i class="bi bi-plus"></i>
             </a>
         </div>
 
-        <table id="vehiculos" class="display" style="width:100%"> <!-- Lista de Áreas -->
+<table id="vehiculos" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Acciones</th>
+                    <th>Color</th>
+                    <th>Descripcion</th>
+                    <th>Año</th>
+                    <th>KM</th>
+                    <th>Marca</th>
+                    <th>Tipo de Vehiculo</th>
+                    <th>Foto</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="a : ${vehiculos}">
-                    <td th:text="${a.id}"></td>
-                    <td th:text="${a.nombre}"></td>
+                <tr th:each="t : ${vehiculos}">
+                    <td th:text="${t.id}"></td>
+                    <td th:text="${t.nombre}"></td>
+                    <td th:text="${t.color}"></td>
+                    <td th:text="${t.descripcion}"></td>
+                    <td th:text="${t.annio}"></td>
+                    <td th:text="${t.km}"></td>
+                    <td th:text="${t.marca.nombre}"></td>
+                    <td th:text="${t.tipoVehiculo.nombre}"></td>
+                    <td th:text="${t.imagen}"></td>
                     <td>
-                        <a class="btn btn-primary" th:href="@{'/vehiculos/{id}' (id=${a.id})}">
-                            <i class="fa-solid fa-eye"></i>
+                        <a class="btn btn-primary" th:href="@{'/vehiculos/{id}' (id=${t.id})}">
+                            <i class="bi bi-eye"></i>
                         </a>
 
-                        <a class="btn btn-secondary" th:href="@{'/vehiculos/editar/{id}' (id=${a.id})}">
-                            <i class="fa-solid fa-pencil"></i>
+<a class="btn btn-secondary" th:href="@{'/vehiculos/editar/{id}' (id=${t.id})}">
+    <i class="bi bi-pencil-fill"></i>
                         </a>
 
-                        <form class="d-inline" th:action="@{'/vehiculos/{id}' (id=${a.id})}" th:method="DELETE">
-                            <button type="submit" class="btn btn-danger"
-                                onclick="return confirm('¿Seguro de eliminar?')">
-                                <i class="fa-solid fa-trash-can"></i>
+<form class="d-inline" th:action="@{'/vehiculos/{id}' (id=${t.id})}" th:method="DELETE">
+    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro de eliminar?')">
+        <i class="bi bi-trash3-fill"></i>
                             </button>
                         </form>
                     </td>
@@ -52,8 +65,9 @@
     </div>
 </div>
 
+
 <script th:fragment="script">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#vehiculos').DataTable();
-    });
+    } );
 </script>

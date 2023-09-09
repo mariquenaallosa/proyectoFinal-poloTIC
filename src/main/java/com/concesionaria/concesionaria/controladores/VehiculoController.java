@@ -74,34 +74,68 @@ public class VehiculoController implements WebMvcConfigurer {
     }
 
 
+    // @PostMapping("/crear")
+    // public ModelAndView guardar(@RequestParam("archivo") MultipartFile archivo,
+    // @Valid Vehiculo vehiculo, BindingResult br, RedirectAttributes ra) {
+    // if ( archivo.isEmpty() )
+    // br.reject("archivo", "Por favor, cargue una imagen");
+
+    // System.out.println(vehiculo);
+
+    // if ( br.hasErrors() ) {
+    // return this.crear(vehiculo);
+    // }
+    // vehiculoServicio.save(vehiculo);
+
+    // String tipo = archivo.getContentType();
+    // String extension = "." + tipo.substring(tipo.indexOf('/') + 1,
+    // tipo.length());
+    // String imagen = vehiculo.getId() + extension;
+    // String path = Paths.get("src/main/resources/static/images/vehiculos",
+    // imagen).toAbsolutePath().toString();
+    // ModelAndView mav = this.index();
+
+    // try {
+    // archivo.transferTo( new File(path) );
+    // } catch (Exception e) {
+    // mav.addObject("error", "No se pudo guardar la imagen");
+    // return mav;
+    // }
+
+    // vehiculo.setImagen(imagen);
+    // vehiculoServicio.save(vehiculo);
+    // mav.addObject("exito", "Vehiculo creado exitosamente");
+    // return mav;
+    // }
     @PostMapping("/crear")
-    public ModelAndView guardar(@RequestParam("archivo") MultipartFile archivo, @Valid Vehiculo vehiculo, BindingResult br, RedirectAttributes ra) {
-        if ( archivo.isEmpty() )
+    public ModelAndView guardar(@RequestParam("archivo") MultipartFile archivo, @Valid Vehiculo vehiculo,
+        BindingResult br, RedirectAttributes ra) {
+      if (archivo.isEmpty())
         br.reject("archivo", "Por favor, cargue una imagen");
 
-        if ( br.hasErrors() ) {
+      if (br.hasErrors()) {
         return this.crear(vehiculo);
-        }
-        vehiculoServicio.save(vehiculo);
+      }
+      vehiculoServicio.save(vehiculo);
 
-        String tipo = archivo.getContentType();
-        String extension = "." + tipo.substring(tipo.indexOf('/') + 1, tipo.length());
-        String imagen = vehiculo.getId() + extension;
-        String path = Paths.get("src/main/resources/static/images/vehiculos", imagen).toAbsolutePath().toString();
-        ModelAndView mav = this.index();
+    String tipo = archivo.getContentType();
+    String extension = "." + tipo.substring(tipo.indexOf('/') + 1, tipo.length());
+    String imagen = vehiculo.getId() + extension;
+    String path = Paths.get("src/main/resources/static/images/vehiculos", imagen).toAbsolutePath().toString();
+    ModelAndView mav = this.index();
 
-        try {
-        archivo.transferTo( new File(path) );
-        } catch (Exception e) {
-        mav.addObject("error", "No se pudo guardar la imagen");
-        return mav;
-        }
-
-        vehiculo.setImagen(imagen);
-        vehiculoServicio.save(vehiculo);
-        mav.addObject("exito", "Vehiculo creado exitosamente");
-        return mav;
+    try {
+      archivo.transferTo(new File(path));
+    } catch (Exception e) {
+      mav.addObject("error", "No se pudo guardar la imagen");
+      return mav;
     }
+
+    vehiculo.setImagen(imagen);
+    vehiculoServicio.save(vehiculo);
+    mav.addObject("exito", "Curso creado exitosamente");
+    return mav;
+  }
 
 
 
