@@ -1,0 +1,57 @@
+<div class="container p-3" th:fragment="contenido">
+    <div class="card p-4">
+        <div class="row">
+            <div th:if="${exito}" class="alert alert-success alert-dismissible fade show">
+                <span th:text="${exito}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show">
+                <span th:text="${error}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col h2">Listado de marcas</div>
+            <a href="/marcas/crear" class="col-auto btn btn-lg btn-success">
+                <i class="bi bi-plus"></i>
+            </a>
+        </div>
+
+        <table id="marcas" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="m : ${marcas}">
+                    <td th:text="${m.id}"></td>
+                    <td th:text="${m.nombre}"></td>
+                    <td>
+                        <a class="btn btn-primary" th:href="@{'/marcas/{id}' (id=${m.id})}">
+                            <i class="bi bi-eye"></i>
+                        </a>
+
+                        <a class="btn btn-secondary" th:href="@{'/marcas/editar/{id}' (id=${m.id})}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+
+                        <form class="d-inline" th:action="@{'/marcas/{id}' (id=${m.id})}" th:method="DELETE">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro de eliminar?')">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script th:fragment="script">
+    $(document).ready(function() {
+        $('#marcas').DataTable();
+    } );
+</script>
