@@ -28,8 +28,7 @@ public class Vehiculo {
     @ManyToOne(cascade = CascadeType.REFRESH)
     private TipoVehiculo tipoVehiculo;
 
-    @NotNull
-    @NotBlank(message = "Campo obligatorio")
+    
     private Integer km;
 
     @NotNull
@@ -37,8 +36,7 @@ public class Vehiculo {
     @Size(max = 50, message = "Nombre demasiado largo")
     private String color;
 
-    @NotNull
-    @NotBlank(message = "Campo obligatorio")
+    
     private Integer annio;
 
     @Size(max = 255, message = "Descripcion demasiada larga")
