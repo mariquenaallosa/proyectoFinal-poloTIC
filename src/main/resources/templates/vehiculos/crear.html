@@ -5,7 +5,7 @@
         <div class="card-header">
           <h2>Crear nuevo vehiculo</h2>
         </div>
-        <form class="card-body" th:action="@{/vehiculos/crear}" th:object="${vehiculo}" method="POST">
+        <form class="card-body" th:action="@{/vehiculos/crear}" th:object="${vehiculo}" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="nombre" th:field="*{nombre}" th:errorClass="'is-invalid'">
@@ -28,7 +28,7 @@
           </div>
           <div class="mb-3">
             <label for="km" class="form-label">Kilometros</label>
-            <input type="number" step="0.01" class="form-control" id="km" th:field="*{km}" th:errorClass="'is-invalid'">
+            <input type="number"  class="form-control" id="km" th:field="*{km}" th:errorClass="'is-invalid'">
             <div class="invalid-feedback" th:if="${#fields.hasErrors('km')}" th:errors="*{km}"></div>
           </div>
           <div class="mb-3">

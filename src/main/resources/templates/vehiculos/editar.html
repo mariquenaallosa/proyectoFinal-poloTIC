@@ -6,7 +6,7 @@
                 <h2>Editar vehiculo</h2>
             </div>
         <form class="card-body" th:action="@{'/vehiculos/editar/{id}' (id=${vehiculo.id})}" th:object="${vehiculo}"
-            th:method="PUT">
+            th:method="PUT" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="nombre" th:field="*{nombre}" th:errorClass="'is-invalid'">
