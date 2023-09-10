@@ -4,7 +4,9 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img th:src="${'/images/vehiculos/5.jpeg'}" th:alt="${'Foto del vehiculo' + vehiculos.nombre}" class="img-fluid rounded-start">
+                        <div class="mb-3" th:if="${vehiculos.imagen != null}">
+                            <img th:src="${'/images/vehiculos/' + vehiculos.imagen}" th:alt="${'Foto del vehiculo' + vehiculos.nombre}" height="200px">
+                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

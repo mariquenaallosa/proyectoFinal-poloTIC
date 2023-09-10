@@ -1,7 +1,6 @@
 package com.concesionaria.concesionaria.controladores;
 
 import com.concesionaria.concesionaria.entidades.Marca;
-import com.concesionaria.concesionaria.entidades.TipoVehiculo;
 import com.concesionaria.concesionaria.servicios.MarcaServicio;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

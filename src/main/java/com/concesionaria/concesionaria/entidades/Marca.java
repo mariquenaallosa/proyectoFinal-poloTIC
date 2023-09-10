@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import jakarta.persistence.*;
 import java.util.*;
-import com.concesionaria.concesionaria.entidades.*;
 
 @Entity
 @AllArgsConstructor

@@ -3,7 +3,7 @@ package com.concesionaria.concesionaria.entidades;
 import jakarta.validation.constraints.*;
 import lombok.*;
 import jakarta.persistence.*;
-import java.lang.*;
+
 
 @Entity
 @AllArgsConstructor

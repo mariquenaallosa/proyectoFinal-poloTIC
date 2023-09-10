@@ -4,7 +4,7 @@ import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import com.concesionaria.concesionaria.dto.*;
+
 import java.lang.annotation.*;
 import jakarta.validation.*;
 
