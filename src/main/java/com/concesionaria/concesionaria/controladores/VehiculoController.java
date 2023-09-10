@@ -60,6 +60,15 @@ public class VehiculoController implements WebMvcConfigurer {
         mav.addObject("marca", marca);
         return mav;
     }
+    @GetMapping("/{id}") //muestra UN vehiculo,responde al boton eye
+    public ModelAndView mostrar(@PathVariable("id") Long id, Vehiculo vehiculo){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("fragments/base");
+        mav.addObject("titulo","Vehículo");
+        mav.addObject("vista","vehiculos/ver");
+        mav.addObject("vehiculos", vehiculoServicio.getById(id));
+        return mav;
+    }
 
     @GetMapping("/crear")
     public ModelAndView crear(Vehiculo vehiculo) {
