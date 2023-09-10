@@ -1,19 +1,42 @@
 <div class="container my-auto p-3" th:fragment="contenido">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header h3" th:text="|Ver Vehiculo nº ${vehiculos.id}|"></div>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img th:src="${'/images/vehiculos/5.jpeg'}" th:alt="${'Foto del vehiculo' + vehiculos.nombre}" class="img-fluid rounded-start">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${vehiculos.marca.nombre} +' ' +${vehiculos.nombre}"></h5>
+                            <p class="card-text" th:text="${vehiculos.descripcion}"></p>
+                            <ul>
+                                <li th:text="${vehiculos.annio}"></li>
+                                <li th:text="${vehiculos.color}"></li>
+                                <li th:text="${vehiculos.km}"></li>
+                                <li th:text="${vehiculos.tipoVehiculo.nombre}"></li>
+                                <li>Precio: U$$ 10000</li>
+                            </ul>
+                            <div class="d-flex justify-content-center">
+                                <a href="/vehiculos" class="btn btn-secondary m-0">Volver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--div class="card">
+                <div class="card-header h3" th:text="${vehiculos.marca.nombre} +' ' +${vehiculos.nombre}"></div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
-                            <p class="h4">Vehiculo:</p>
-                            <p th:text="${vehiculos.marca.nombre} +' ' +${vehiculos.nombre}"></p>
+                            <p class="h4">Año:</p>
+                            <p th:text="vehiculos.annio"></p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="/vehiculos" class="btn btn-secondary m-0">Volver</a>
                     </div>
-                </div>
+                </div-->
             </div>
         </div>
     </div>
