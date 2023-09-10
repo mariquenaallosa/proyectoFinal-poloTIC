@@ -28,6 +28,7 @@
                     <th>Descripcion</th>
                     <th>Año</th>
                     <th>KM</th>
+                    <th>Precio</th>
                     <th>Marca</th>
                     <th>Tipo de Vehiculo</th>
                     <th>Foto</th>
@@ -41,6 +42,7 @@
                     <td th:text="${v.descripcion}"></td>
                     <td th:text="${v.annio}"></td>
                     <td th:text="${v.km}"></td>
+                    <td th:text="${v.precio}"></td>
                     <td th:text="${v.marca.nombre}"></td>
                     <td th:text="${v.tipoVehiculo.nombre}"></td>
                     <td style="text-align: center;"><img th:src="${'/images/vehiculos/' + v.imagen}" th:alt="${'Foto del vehiculo' + v.nombre}" height="150px"></td>

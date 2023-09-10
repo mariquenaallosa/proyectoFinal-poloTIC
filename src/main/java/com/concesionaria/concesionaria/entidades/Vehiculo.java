@@ -39,6 +39,9 @@ public class Vehiculo {
     
     private Integer annio;
 
+
+    private Integer precio;
+
     @Size(max = 255, message = "Descripcion demasiada larga")
     private String descripcion;
 

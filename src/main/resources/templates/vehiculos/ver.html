@@ -17,7 +17,8 @@
                                 <li th:text="${vehiculos.color}"></li>
                                 <li th:text="${vehiculos.km}"></li>
                                 <li th:text="${vehiculos.tipoVehiculo.nombre}"></li>
-                                <li>Precio: U$$ 10000</li>
+                                <li th:text="${vehiculos.precio}"></li>
+
                             </ul>
                             <div class="d-flex justify-content-center">
                                 <a href="/vehiculos" class="btn btn-secondary m-0">Volver</a>
@@ -26,22 +27,9 @@
                     </div>
                 </div>
             </div>
-            <!--div class="card">
-                <div class="card-header h3" th:text="${vehiculos.marca.nombre} +' ' +${vehiculos.nombre}"></div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="h4">Año:</p>
-                            <p th:text="vehiculos.annio"></p>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="/vehiculos" class="btn btn-secondary m-0">Volver</a>
-                    </div>
-                </div-->
-            </div>
         </div>
     </div>
 </div>
+
 
 <script th:fragment="script"></script>

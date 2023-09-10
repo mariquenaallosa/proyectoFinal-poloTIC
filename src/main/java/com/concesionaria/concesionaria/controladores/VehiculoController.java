@@ -153,6 +153,7 @@ public class VehiculoController implements WebMvcConfigurer {
     registro.setColor( vehiculo.getColor() );
     registro.setAnnio(vehiculo.getAnnio() );
     registro.setDescripcion( vehiculo.getDescripcion() );
+    registro.setPrecio(vehiculo.getPrecio());
     ModelAndView maw = this.index();
 
     if ( ! archivo.isEmpty() ) {

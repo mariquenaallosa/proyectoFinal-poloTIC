@@ -29,8 +29,13 @@
             </div>
             <div class="mb-3">
                 <label for="km" class="form-label">Kilometros</label>
-                <input type="number" step="0.01" class="form-control" id="km" th:field="*{km}" th:errorClass="'is-invalid'">
+                <input type="number" class="form-control" id="km" th:field="*{km}" th:errorClass="'is-invalid'">
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('km')}" th:errors="*{km}"></div>
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" th:field="*{precio}" th:errorClass="'is-invalid'">
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
             </div>
             <div class="mb-3">
                 <label for="marca" class="form-label">Marca</label>

@@ -32,6 +32,11 @@
             <div class="invalid-feedback" th:if="${#fields.hasErrors('km')}" th:errors="*{km}"></div>
           </div>
           <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number"  class="form-control" id="precio" th:field="*{precio}" th:errorClass="'is-invalid'">
+            <div class="invalid-feedback" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
+          </div>
+          <div class="mb-3">
             <label for="marca" class="form-label">Marca</label>
             <select id="marca" th:field="*{marca}" class="select2 form-select" th:errorClass="'is-invalid'">
               <option selected value=""></option>
