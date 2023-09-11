@@ -23,7 +23,7 @@ public class HomeController {
         maw.setViewName("fragments/base");
         maw.addObject("titulo", "Inicio");
         maw.addObject("vista", "inicio/home");
-        //maw.addObject("vehiculos",vehiculoServicio.getAll());
+        maw.addObject("vehiculos",vehiculoServicio.getAll());
 
 /*
         long random = (long) ((Math.random() * (cursoRepository.count() - 1)) + 1);

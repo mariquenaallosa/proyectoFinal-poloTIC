@@ -47,7 +47,7 @@
                     <td th:text="${v.tipoVehiculo.nombre}"></td>
                     <td style="text-align: center;"><img th:src="${'/images/vehiculos/' + v.imagen}" th:alt="${'Foto del vehiculo' + v.nombre}" height="150px"></td>
                     <td>
-                        <a class="btn btn-primary" th:href="@{'/vehiculos/{id}' (id=${v.id})}">
+                        <a class="btn btn-primary" th:href="@{'/vehiculos/ver/{id}' (id=${v.id})}">
                             <i class="bi bi-eye"></i>
                         </a>
 

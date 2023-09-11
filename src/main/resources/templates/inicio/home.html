@@ -23,109 +23,14 @@
         </div>
     </div>
     <div class="container-fluid mt-3">
-        <div class="row vehiculos-container gy-4 justify-content-evenly">
+        <div class="row vehiculos-container gy-4 justify-content-evenly" th:each="v : ${vehiculos}">
             <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
-                <img src="/images/banner-home.webp" class="card-img-top " alt="...">
+                <img th:src="|/images/vehiculos/${v.imagen}|" class="card-img-top" th:alt="${v.nombre}">
                 <div class="card-body">
-                    <h5 class="card-title">Vehiculo </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Leer más </span>
-                            <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
-                                 id="arrow-horizontal">
-                                <path transform="translate(30)"
-                                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                                      data-name="Path 10" id="Path_10"></path>
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
-                <img src="/images/banner-home.webp" class="card-img-top " style="width: 100%;">
-                <div class="card-body">
-                    <h5 class="card-title">Vehiculo </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Leer más </span>
-                            <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
-                                 id="arrow-horizontal">
-                                <path transform="translate(30)"
-                                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                                      data-name="Path 10" id="Path_10"></path>
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
-                <img src="/images/banner-home.webp" class="card-img-top " alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Vehiculo </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Leer más </span>
-                            <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
-                                 id="arrow-horizontal">
-                                <path transform="translate(30)"
-                                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                                      data-name="Path 10" id="Path_10"></path>
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
-                <img src="/images/banner-home.webp" class="card-img-top " alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Vehiculo </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Leer más </span>
-                            <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
-                                 id="arrow-horizontal">
-                                <path transform="translate(30)"
-                                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                                      data-name="Path 10" id="Path_10"></path>
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
-                <img src="/images/banner-home.webp" class="card-img-top " alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Vehiculo </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Leer más </span>
-                            <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
-                                 id="arrow-horizontal">
-                                <path transform="translate(30)"
-                                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                                      data-name="Path 10" id="Path_10"></path>
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
-                <img src="/images/banner-home.webp" class="card-img-top " alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Vehiculo </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#">
+                    <h5 class="card-title" th:text="${v.nombre}">Vehiculo </h5>
+                    <p class="card-text" th:text="${v.descripcion}"></p>
+                    <p class="card-text">$<span th:text="${v.precio}"></span></p>
+                    <a th:href="@{'/vehiculos/ver/{id}' (id=${v.id})}">
                         <button class="cta">
                             <span class="hover-underline-animation"> Leer más </span>
                             <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
