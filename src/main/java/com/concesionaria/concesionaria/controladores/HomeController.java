@@ -42,5 +42,13 @@ public class HomeController {
         maw.addObject("vista", "inicio/ejemplo");
         return maw;
     }
-
+    @PostMapping("/buscar") //Método para el buscador del header
+    public ModelAndView buscarVehiculo(@RequestParam String nombre){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("fragments/base");
+        mav.addObject("titulo", "Busqueda");
+        mav.addObject("vista","inicio/busqueda");
+        mav.addObject("vehiculosBuscar", vehiculoServicio.getAll().stream().filter(p -> (p.getNombre().toLowerCase().contains(nombre.toLowerCase()))).toList());
+        return mav;
+    }
 }

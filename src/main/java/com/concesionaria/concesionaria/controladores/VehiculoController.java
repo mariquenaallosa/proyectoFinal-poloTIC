@@ -5,6 +5,9 @@ import com.concesionaria.concesionaria.servicios.*;
 import jakarta.validation.Valid;
 import java.io.File;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +31,6 @@ public class VehiculoController implements WebMvcConfigurer {
 
     @GetMapping
     public ModelAndView index(){
-
         ModelAndView mav = new ModelAndView();
         mav.setViewName("fragments/base");
         mav.addObject("titulo", "Listado de vehículos");
@@ -111,9 +113,6 @@ public class VehiculoController implements WebMvcConfigurer {
     mav.addObject("exito", "Curso creado exitosamente");
     return mav;
   }
-
-
-
 
     @GetMapping("/editar/{id}")
     public ModelAndView editar(@PathVariable("id") Long id, Vehiculo vehiculo){

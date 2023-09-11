@@ -1,0 +1,35 @@
+<section id="vehiculosBuscar" class="vehiculo" th:fragment="contenido">
+    <div class="container" style="width:100%">
+        <div class="row">
+            <div class="d-flex flex-column align-items-center justify-content-center section-title">
+                <h2 class="text-center">Estos son los resultados de la busqueda</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-3">
+        <div class="row vehiculosBuscar-container gy-4 justify-content-evenly">
+            <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;" th:each="v:${vehiculosBuscar}" >
+                <img src="/images/banner-home.webp" class="card-img-top " alt="...">
+                <div class="card-body" >
+                    <div>
+                        <h5 class="card-title" th:text="${v.marca.nombre}+' '+${v.nombre}+' ('+${v.annio}+')'"></h5>
+                        <h5 class="card-title" th:text="'$ '+ ${v.precio}"></h5>
+                    </div>
+                    <p class="card-text" th:text="${v.descripcion}"></p>
+                    <a href="#">
+                        <button class="cta">
+                            <span class="hover-underline-animation"> Leer más </span>
+                            <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
+                                 id="arrow-horizontal">
+                                <path transform="translate(30)"
+                                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                                      data-name="Path 10" id="Path_10"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script th:fragment="script"></script>
