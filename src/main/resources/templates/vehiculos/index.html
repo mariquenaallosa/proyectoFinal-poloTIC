@@ -10,8 +10,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>
-
-
         <div class="row mb-5">
             <div class="col h2">Listado de vehiculos</div>
             <a href="/vehiculos/crear" class="col-auto btn btn-lg btn-success">
@@ -19,7 +17,7 @@
             </a>
         </div>
 
-<table id="vehiculos" class="display" style="width:100%">
+        <table id="vehiculos" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -35,6 +33,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 <tr th:each="v : ${vehiculos}">
                     <td th:text="${v.id}"></td>
                     <td th:text="${v.nombre}"></td>
@@ -64,9 +63,9 @@
                 </tr>
             </tbody>
         </table>
+
     </div>
 </div>
-
 
 <script th:fragment="script">
     $(document).ready(function() {
