@@ -4,6 +4,20 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+.form-control:focus {
+    border-color: #5D5A88; 
+    box-shadow: 0 0 0 0.1rem rgba(200, 115, 208, 0.25);
+}
+button.btn-sub{
+   background-color: #5a54ad; 
+   color: #fff;
+   border-color: #5D5A88; 
+}
+button.btn-sub:hover {
+    background-color: #432546; 
+    color: #fff;
+    border-color: #432546; 
+ }
 /* ---------------------------------------------------
                 NAVBAR
 --------------------------------------------------- */
