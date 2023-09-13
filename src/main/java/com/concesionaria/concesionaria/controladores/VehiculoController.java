@@ -110,7 +110,7 @@ public class VehiculoController implements WebMvcConfigurer {
 
     vehiculo.setImagen(imagen);
     vehiculoServicio.save(vehiculo);
-    mav.addObject("exito", "Curso creado exitosamente");
+    mav.addObject("exito", "Vehiculo creado exitosamente");
     return mav;
   }
 
