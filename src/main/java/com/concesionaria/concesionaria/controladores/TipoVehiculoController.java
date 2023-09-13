@@ -1,6 +1,7 @@
 package com.concesionaria.concesionaria.controladores;
 
 import com.concesionaria.concesionaria.entidades.*;
+import com.concesionaria.concesionaria.repositorios.TipoVehiculoRepositorio;
 import com.concesionaria.concesionaria.servicios.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class TipoVehiculoController implements WebMvcConfigurer {
 
     @Autowired
     TipoVehiculoServicio tipoVehiculoServicio;
+
+    @Autowired
+    TipoVehiculoRepositorio tipoVehiculoRepositorio;
 
     @GetMapping
     public ModelAndView index(){
@@ -94,9 +98,19 @@ public class TipoVehiculoController implements WebMvcConfigurer {
 
     @DeleteMapping("/{id}")
     public ModelAndView eliminar(@PathVariable("id") Long id) {
-        tipoVehiculoServicio.delete(id);
-        ModelAndView mav = this.index();
-        mav.addObject("exito", "Tipo de vehiculo eliminada exitosamente");
+
+        ModelAndView mav;
+
+        if (tipoVehiculoRepositorio.hasReferences(id)) {
+            mav = this.index();
+            mav.addObject("error", "No se puede borrar el registro porque posee datos asociados");
+        }else{
+            tipoVehiculoServicio.delete(id);
+            mav = this.index();
+            mav.addObject("exito", "Tipo de vehiculo eliminada exitosamente");
+        }
+
+        
         return mav;
     }
 
