@@ -1,12 +1,12 @@
 <div class="container my-auto p-3" th:fragment="contenido">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mb-1 text-center bg-light border">
 
-            <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="mb-3" th:if="${vehiculos.imagen != null}">
-                        <img class="img-fluid rounded-start" th:src="${'/images/vehiculos/' + vehiculos.imagen}" th:alt="${'Foto del vehiculo' + vehiculos.nombre}"  style="margin: 10px;">
+                        <img class="img-fluid rounded-start" th:src="${'/images/vehiculos/' + vehiculos.imagen}"
+                          th:alt="${'Foto del vehiculo' + vehiculos.nombre}" style="margin: 10px;">
                     </div>
                   </div>
                   <div class="col-md-8">
@@ -25,11 +25,31 @@
                             <a sec:authorize="isAnonymous" href="/" class="btn btn-secondary m-0">Volver al inicio</a>
                         </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-    </div>
+                    </div>
+                    </div> -->
+                    <div>
+                      <div class="card-body">
+                        <img class="card-img-top h-50 w-50 justify-content-center" th:src="${'/images/vehiculos/' + vehiculos.imagen}"
+                          th:alt="${'Foto del vehiculo' + vehiculos.nombre}" style="margin: 10px;">
+                        <div class="card-body">
+                          <h5 class="font-weight-bold" th:text="${vehiculos.marca.nombre} +' ' +${vehiculos.nombre}"></h5>
+                          <p class="card-text" th:text="${vehiculos.descripcion}"></p>
+                          <div class="d-inlin "> Año:
+                            <p class="d-inline" th:text="${vehiculos.annio} + ', Color:' "></p>
+                            <p class="d-inline" th:text="${vehiculos.color}+ ', KM:'"></p>
+                            <p class="d-inline" th:text="${vehiculos.km}+'km, Modelo:'"></p>
+                            <p class="d-inline" th:text="${vehiculos.tipoVehiculo.nombre}+ ', $'"></p>
+                            <p class="d-inline" th:text="${vehiculos.precio}"></p>
+                          </div>
+                        </div>
+                          </div>
+                          </div>
+                          </div>
+
+</div>
+<div class="d-flex justify-content-center my-5">
+  <a sec:authorize="hasRole('Admin')" href="/vehiculos" class="boton btn text-white m-0">Volver</a>
+  <a sec:authorize="isAnonymous" href="/" class="btn btn-secondary m-0">Volver al inicio</a>
 </div>
 
 
