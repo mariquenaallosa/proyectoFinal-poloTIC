@@ -1,7 +1,7 @@
 <div class="container my-auto p-3" th:fragment="contenido">
 <div class="row justify-content-center">
   <div class="col-md-8">
-    <div class="card mb-1 text-center border">
+    <div class="card mb-1 text-center bg-light border">
 
                   <!-- <div class="col-md-4">
                     <div class="mb-3" th:if="${vehiculos.imagen != null}">
@@ -34,12 +34,12 @@
                         <div class="card-body">
                           <h5 class="font-weight-bold" th:text="${vehiculos.marca.nombre} +' ' +${vehiculos.nombre}"></h5>
                           <p class="card-text" th:text="${vehiculos.descripcion}"></p>
-                          <div class="d-inlin "> Detalles:
-                            <p class="d-inline" th:text="${vehiculos.annio} + ', ' "></p>
-                            <p class="d-inline" th:text="${vehiculos.color}+ ', '"></p>
-                            <p class="d-inline" th:text="${vehiculos.km}+'km, '"></p>
-                            <p class="d-inline" th:text="${vehiculos.tipoVehiculo.nombre}+ ', '"></p>
-                            <p class="d-inline" th:text="${vehiculos.precio}+ '$'"></p>
+                          <div class="d-inlin "> Año:
+                            <p class="d-inline" th:text="${vehiculos.annio} + ', Color:' "></p>
+                            <p class="d-inline" th:text="${vehiculos.color}+ ', KM:'"></p>
+                            <p class="d-inline" th:text="${vehiculos.km}+'km, Modelo:'"></p>
+                            <p class="d-inline" th:text="${vehiculos.tipoVehiculo.nombre}+ ', $'"></p>
+                            <p class="d-inline" th:text="${vehiculos.precio}"></p>
                           </div>
                         </div>
                           </div>
@@ -47,8 +47,8 @@
                           </div>
 
 </div>
-<div class=" d-flex justify-content-center my-5">
-  <a sec:authorize="hasRole('Admin')" href="/vehiculos" class="btn btn-secondary m-0">Volver</a>
+<div class="d-flex justify-content-center my-5">
+  <a sec:authorize="hasRole('Admin')" href="/vehiculos" class="boton btn text-white m-0">Volver</a>
   <a sec:authorize="isAnonymous" href="/" class="btn btn-secondary m-0">Volver al inicio</a>
 </div>
 
