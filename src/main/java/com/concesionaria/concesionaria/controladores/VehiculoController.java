@@ -5,8 +5,7 @@ import com.concesionaria.concesionaria.servicios.*;
 import jakarta.validation.Valid;
 import java.io.File;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.validation.BindingResult;
@@ -103,7 +102,7 @@ public class VehiculoController implements WebMvcConfigurer {
 
     try {
       archivo.transferTo(new File(path));
-      Thread.sleep(1500)
+      Thread.sleep(1500);
     } catch (Exception e) {
       mav.addObject("error", "No se pudo guardar la imagen");
       return mav;
