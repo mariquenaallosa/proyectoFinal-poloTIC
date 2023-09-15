@@ -1,8 +1,4 @@
-<section
-  id="banner"
-  class="d-flex align-items-center banner"
-  th:fragment="contenido"
->
+<section id="banner" class="d-flex align-items-center banner" th:fragment="contenido">
   <div class="container" style="width: 60%">
     <div class="row">
       <div class="d-flex flex-column align-items-center justify-content-center">
@@ -21,9 +17,7 @@
 <section id="vehiculos" class="vehiculo" th:fragment="contenido">
   <div class="container" style="width: 80%">
     <div class="row">
-      <div
-        class="d-flex flex-column align-items-center justify-content-center section-title"
-      >
+      <div class="d-flex flex-column align-items-center justify-content-center section-title">
         <h2 class="text-center">Explora nuestros vehículos</h2>
         <p class="text-center">
           Aquí encontrarás los vehículos que han atraído más miradas y suspiros
@@ -36,30 +30,31 @@
   </div>
   <div class="container-fluid mt-3">
     <div class="row gy-4 justify-content-evenly">
-        <div th:each="v : ${vehiculos}" class="col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
-            <div class="card mb-2">
-                <img th:src="|/images/vehiculos/${v.imagen}|" class="card-img-top" th:alt="${v.nombre}">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${v.nombre}">Vehiculo </h5>
-                    <p class="card-text" th:text="${v.descripcion}"></p>
-                    <p class="card-text">$<span th:text="${v.precio}"></span></p>
-                    <a th:href="@{'/vehiculos/ver/{id}' (id=${v.id})}">
-                        <button class="cta">
-                            <span class="hover-underline-animation"> Leer más </span>
-                            <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
-                                id="arrow-horizontal">
-                                <path transform="translate(30)"
-                                    d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                                    data-name="Path 10" id="Path_10"></path>
-                            </svg>
-                        </button>
-                    </a>
-                </div>
+      <div th:each="v : ${vehiculos}" class="col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;">
+        <div class="card mb-2">
+          <img th:src="|/images/vehiculos/${v.imagen}|" class="card-img-top" th:alt="${v.nombre}">
+          <div class="card-body">
+            <div>
+              <h5 class="card-title" th:text="${v.marca.nombre}+' '+${v.nombre}+' ('+${v.annio}+')'"></h5>
+              <h5 class="card-title" th:text="'$ '+ ${v.precio}"></h5>
             </div>
+            <p class="card-text" th:text="${v.descripcion}"></p>
+            <a th:href="@{'/vehiculos/ver/{id}' (id=${v.id})}">
+              <button class="cta">
+                <span class="hover-underline-animation"> Leer más </span>
+                <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
+                  id="arrow-horizontal">
+                  <path transform="translate(30)"
+                    d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10"
+                    id="Path_10"></path>
+                </svg>
+              </button>
+            </a>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 </section>
 
 <script th:fragment="script"></script>
-
