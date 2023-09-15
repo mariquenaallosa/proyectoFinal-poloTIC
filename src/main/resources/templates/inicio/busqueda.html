@@ -9,14 +9,14 @@
     <div class="container-fluid mt-3">
         <div class="row vehiculosBuscar-container gy-4 justify-content-evenly">
             <div class="card col-xl-3 col-lg-4 col-md-6 mb-2" style="width:24rem;" th:each="v:${vehiculosBuscar}" >
-                <img src="/images/banner-home.webp" class="card-img-top " alt="...">
+                <img th:src="|/images/vehiculos/${v.imagen}|" class="card-img-top" th:alt="${v.nombre}">
                 <div class="card-body" >
                     <div>
                         <h5 class="card-title" th:text="${v.marca.nombre}+' '+${v.nombre}+' ('+${v.annio}+')'"></h5>
                         <h5 class="card-title" th:text="'$ '+ ${v.precio}"></h5>
                     </div>
                     <p class="card-text" th:text="${v.descripcion}"></p>
-                    <a href="#">
+                    <a th:href="@{'/vehiculos/ver/{id}' (id=${v.id})}">
                         <button class="cta">
                             <span class="hover-underline-animation"> Leer más </span>
                             <svg viewBox="0 0 46 16" height="10" width="30" xmlns="http://www.w3.org/2000/svg"
