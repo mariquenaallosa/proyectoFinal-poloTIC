@@ -102,7 +102,7 @@ public class VehiculoController implements WebMvcConfigurer {
 
     try {
       archivo.transferTo(new File(path));
-      Thread.sleep(1500);
+      Thread.sleep(1000);
     } catch (Exception e) {
       mav.addObject("error", "No se pudo guardar la imagen");
       return mav;
