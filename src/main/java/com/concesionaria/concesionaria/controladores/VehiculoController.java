@@ -103,6 +103,7 @@ public class VehiculoController implements WebMvcConfigurer {
 
     try {
       archivo.transferTo(new File(path));
+      Thread.sleep(1500)
     } catch (Exception e) {
       mav.addObject("error", "No se pudo guardar la imagen");
       return mav;
@@ -137,9 +138,7 @@ public class VehiculoController implements WebMvcConfigurer {
     }
 
     @PutMapping("/editar/{id}")
-    private ModelAndView update(@PathVariable("id") Long id,
-    @RequestParam(value = "archivo", required = false) MultipartFile archivo,
-    @Valid Vehiculo vehiculo, BindingResult br, RedirectAttributes ra) {
+    private ModelAndView update(@PathVariable("id") Long id, @RequestParam(value = "archivo", required = false) MultipartFile archivo, @Valid Vehiculo vehiculo, BindingResult br, RedirectAttributes ra) {
     if ( br.hasErrors() ) {
       return this.editar(id, vehiculo, false);
     }
