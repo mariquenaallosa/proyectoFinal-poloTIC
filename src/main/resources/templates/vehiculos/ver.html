@@ -2,16 +2,16 @@
   <div class="row justify-content-center">
     <div class="col-md-10">
       <div class="card mb-3 bg-light border">
-
         <div class="row g-0">
           <div class="col-md-8">
             <img class="img-fluid rounded-start justify-content-center"
               th:src="${'/images/vehiculos/' + vehiculos.imagen}" th:alt="${'Foto del vehiculo' + vehiculos.nombre}"
-              style="margin: 10px;">
+              style="margin: 10px; object-fit:cover">
           </div>
-          <div class="col-md-4 justify-content-center">
-            <div class="card-body justify-content-center">
-              <h4 class="font-weight-bold text-center"
+          <div class="col-md-4 d-flex flex-column card-body justify-content-evenly">
+  
+              <div>
+                <h4 class="font-weight-bold text-center"
                 th:text="${vehiculos.marca.nombre} +' (' +${vehiculos.nombre}+')'"></h4>
               <p class="card-text text-center" th:text="${vehiculos.descripcion}"></p>
               <h5 class="font-weight-bold text-center" th:text="'$'+${vehiculos.precio}"></h5>
@@ -22,15 +22,18 @@
                 <li th:text="'Color:'+${vehiculos.color}"></li>
                 <li th:text="'Tipo:'+${vehiculos.tipoVehiculo.nombre}"></li>
               </ul>
+              </div>
               <div class="text-end d-grid gap-2" th:each="v : ${vehiculos}">
                 <a href="/" class="boton btn text-white m-0">Volver</a>
                 <a sec:authorize="hasRole('Admin')" th:href="@{'/vehiculos/editar/{id}' (id=${v.id})}" class=" btn btn-secondary text-white m-0">Editar</a>
               </div>
             </div>
           </div>
-        </div>
+
       </div>
     </div>
+  </div>
+</div>
 
 
 <script th:fragment="script"></script>
