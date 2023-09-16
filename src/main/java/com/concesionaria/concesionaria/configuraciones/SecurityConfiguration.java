@@ -25,6 +25,7 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/registro", "/css/*", "/images/*", "/images/vehiculos/*", "vehiculos/ver/*").permitAll()
@@ -33,6 +34,9 @@ public class SecurityConfiguration {
                         .requestMatchers("/tipoVehiculos","tipoVehiculos/*","/vehiculos","vehiculos/*","/marcas","marcas/*").hasRole("Admin")
 
                         .requestMatchers(HttpMethod.POST,"/tipoVehiculos","tipoVehiculos/*","/vehiculos","vehiculos/*","/marcas","marcas/*").hasRole("Admin")
+
+                        .requestMatchers(HttpMethod.POST,"/buscar").permitAll()
+
 
                         .anyRequest().authenticated()
                 )
