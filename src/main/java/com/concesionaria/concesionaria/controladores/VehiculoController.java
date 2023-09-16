@@ -5,8 +5,7 @@ import com.concesionaria.concesionaria.servicios.*;
 import jakarta.validation.Valid;
 import java.io.File;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.validation.BindingResult;
@@ -103,6 +102,7 @@ public class VehiculoController implements WebMvcConfigurer {
 
     try {
       archivo.transferTo(new File(path));
+      Thread.sleep(1000);
     } catch (Exception e) {
       mav.addObject("error", "No se pudo guardar la imagen");
       return mav;
@@ -110,7 +110,7 @@ public class VehiculoController implements WebMvcConfigurer {
 
     vehiculo.setImagen(imagen);
     vehiculoServicio.save(vehiculo);
-    mav.addObject("exito", "Curso creado exitosamente");
+    mav.addObject("exito", "Vehiculo creado exitosamente");
     return mav;
   }
 
@@ -137,9 +137,7 @@ public class VehiculoController implements WebMvcConfigurer {
     }
 
     @PutMapping("/editar/{id}")
-    private ModelAndView update(@PathVariable("id") Long id,
-    @RequestParam(value = "archivo", required = false) MultipartFile archivo,
-    @Valid Vehiculo vehiculo, BindingResult br, RedirectAttributes ra) {
+    private ModelAndView update(@PathVariable("id") Long id, @RequestParam(value = "archivo", required = false) MultipartFile archivo, @Valid Vehiculo vehiculo, BindingResult br, RedirectAttributes ra) {
     if ( br.hasErrors() ) {
       return this.editar(id, vehiculo, false);
     }

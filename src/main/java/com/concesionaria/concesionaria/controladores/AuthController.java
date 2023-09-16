@@ -17,6 +17,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 
+
 @Controller
 public class AuthController {
 
@@ -92,8 +93,10 @@ public class AuthController {
         }
 
 
-        HomeController hc = new HomeController();
-        return hc.home();
+        // HomeController hc = new HomeController();
+        // return hc.home();
+
+        return new ModelAndView("redirect:/");
     }
 
 }

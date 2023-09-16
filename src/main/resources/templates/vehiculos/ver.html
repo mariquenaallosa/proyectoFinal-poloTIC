@@ -1,35 +1,38 @@
 <div class="container my-auto p-3" th:fragment="contenido">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-
-            <div class="card mb-3">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <div class="mb-3" th:if="${vehiculos.imagen != null}">
-                        <img class="img-fluid rounded-start" th:src="${'/images/vehiculos/' + vehiculos.imagen}" th:alt="${'Foto del vehiculo' + vehiculos.nombre}"  style="margin: 10px;">
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body" style="margin: 10px;">
-                        <h5 class="card-title" th:text="${vehiculos.marca.nombre} +' ' +${vehiculos.nombre}"></h5>
-                        <p class="card-text" th:text="${vehiculos.descripcion}"></p>
-                        <ul>
-                            <li th:text="${vehiculos.annio}"></li>
-                            <li th:text="${vehiculos.color}"></li>
-                            <li th:text="${vehiculos.km}"></li>
-                            <li th:text="${vehiculos.tipoVehiculo.nombre}"></li>
-                            <li th:text="${vehiculos.precio}"></li>
-                        </ul>
-                        <div class="d-flex justify-content-center">
-                            <a sec:authorize="hasRole('Admin')" href="/vehiculos" class="btn btn-secondary m-0">Volver</a>
-                            <a sec:authorize="isAnonymous" href="/" class="btn btn-secondary m-0">Volver al inicio</a>
-                        </div>
-                    </div>
-                  </div>
-                </div>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card mb-3 bg-light border">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <img class="img-fluid rounded-start justify-content-center"
+              th:src="${'/images/vehiculos/' + vehiculos.imagen}" th:alt="${'Foto del vehiculo' + vehiculos.nombre}"
+              style="margin: 10px; object-fit:cover">
+          </div>
+          <div class="col-md-4 d-flex flex-column card-body justify-content-evenly">
+  
+              <div>
+                <h4 class="font-weight-bold text-center"
+                th:text="${vehiculos.marca.nombre} +' (' +${vehiculos.nombre}+')'"></h4>
+              <p class="card-text text-center" th:text="${vehiculos.descripcion}"></p>
+              <h5 class="font-weight-bold text-center" th:text="'$'+${vehiculos.precio}"></h5>
+              <br>
+              <ul>
+                <li th:text="'Año:'+${vehiculos.annio}"></li>
+                <li th:text="${vehiculos.km} +' km'"></li>
+                <li th:text="'Color:'+${vehiculos.color}"></li>
+                <li th:text="'Tipo:'+${vehiculos.tipoVehiculo.nombre}"></li>
+              </ul>
               </div>
-        </div>
+              <div class="text-end d-grid gap-2" th:each="v : ${vehiculos}">
+                <a href="/" class="boton btn text-white m-0">Volver</a>
+                <a sec:authorize="hasRole('Admin')" th:href="@{'/vehiculos/editar/{id}' (id=${v.id})}" class=" btn btn-secondary text-white m-0">Editar</a>
+              </div>
+            </div>
+          </div>
+
+      </div>
     </div>
+  </div>
 </div>
 
 
