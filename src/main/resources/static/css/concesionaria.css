@@ -71,6 +71,12 @@ button.btn-sub:hover {
     font-size: 1.5em;
 }
 
+
+.banner-vehiculos{
+    height: 35vh;
+    padding: 0;
+}
+
 /* ---------------------------------------------------
                 VEHICULOS - HOME
 --------------------------------------------------- */

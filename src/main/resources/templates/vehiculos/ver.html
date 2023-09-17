@@ -24,7 +24,7 @@
               </ul>
               </div>
               <div class="text-end d-grid gap-2" th:each="v : ${vehiculos}">
-                <a href="/" class="boton btn text-white m-0">Volver</a>
+                <a onclick="goBack()" class="boton btn text-white m-0">Volver</a>
                 <a sec:authorize="hasRole('Admin')" th:href="@{'/vehiculos/editar/{id}' (id=${v.id})}" class=" btn btn-secondary text-white m-0">Editar</a>
               </div>
             </div>
@@ -36,4 +36,8 @@
 </div>
 
 
-<script th:fragment="script"></script>
+<script th:fragment="script">
+  function goBack() {
+            window.history.back();
+        }
+</script>
