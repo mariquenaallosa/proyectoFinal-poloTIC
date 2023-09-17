@@ -60,7 +60,7 @@
 
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary mx-2">Editar</button>
-                <a href="/vehiculos" class="btn btn-secondary mx-2">Volver</a>
+                <a onclick="goBack()" class="btn btn-secondary mx-2">Volver</a>
             </div>
             </form>
             </div>
@@ -68,4 +68,8 @@
     </div>
 </div>
 
-<script th:fragment="script"></script>
+<script th:fragment="script">
+    function goBack() {
+            window.history.back();
+        }
+</script>
