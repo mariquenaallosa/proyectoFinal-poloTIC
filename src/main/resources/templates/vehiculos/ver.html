@@ -24,6 +24,7 @@
               </ul>
               </div>
               <div class="text-end d-grid gap-2" th:each="v : ${vehiculos}">
+                <a th:href="@{'/formulario/form/' + ${v.id}}" class="btn btn-primary">Completar formulario</a>
                 <a href="/" class="boton btn text-white m-0">Volver</a>
                 <a sec:authorize="hasRole('Admin')" th:href="@{'/vehiculos/editar/{id}' (id=${v.id})}" class=" btn btn-secondary text-white m-0">Editar</a>
               </div>
