@@ -37,4 +37,16 @@ public class HomeController {
         mav.addObject("vehiculosBuscar", vehiculoServicio.getAll().stream().filter(p -> (p.getNombre().toLowerCase().contains(nombre.toLowerCase()))).toList());
         return mav;
     }
+
+    @GetMapping("/todos")
+    public ModelAndView vehiculos(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("fragments/base");
+        mav.addObject("titulo", "Listado de vehículos");
+        mav.addObject("vista","vehiculos/vehiculos");
+        mav.addObject("vehiculos", vehiculoServicio.getAll());
+        return mav;
+    }
+
+
 }
