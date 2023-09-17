@@ -28,7 +28,7 @@ public class SecurityConfiguration {
         
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/registro", "/css/*", "/images/*", "/images/vehiculos/*", "vehiculos/ver/*").permitAll()
+                        .requestMatchers("/", "/registro", "/css/*", "/images/*", "/images/vehiculos/*", "vehiculos/ver/*", "/todos").permitAll()
 
 
                         .requestMatchers("/tipoVehiculos","tipoVehiculos/*","/vehiculos","vehiculos/*","/marcas","marcas/*").hasRole("Admin")
